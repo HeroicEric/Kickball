@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>League of Cool Kick Ball Professionals</title>
+  </head>
+
+  <body>
+    <h1><%=@specific_team%></h1>
+    <ul>
+      <%@team_players.each do |player|%>
+        <li><%= player %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>

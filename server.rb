@@ -7,16 +7,21 @@ before do
 	CSV.foreach('lackp_starting_rosters.csv',headers:true) do |row|
 		@roster_info << row.to_hash
 	end
-	binding.pry
 end
 
-get '/:team'
-	binding.pry
+# CSV.foreach('lackp_starting_rosters.csv', headers: true) do |row|
+#     if row["team"].downcase == @heading
+#       @players << row.to_hash
+#     end
+#   end
+
+get '/:team' do
+	#binding.pry
 	@team_players = []
 	@specific_team = params[:team].gsub!(/_/," ") #Jetson Jets
   @roster_info.each do |item|
   	if item['team'] == @specific_team
-  		@team_players << #some hash that has first_name, last_name, and position
+  		@team_players << item
   	end
   end
   erb :index

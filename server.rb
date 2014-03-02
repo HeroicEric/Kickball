@@ -8,7 +8,7 @@ before do
   end
 end
 
-get '/:team' do
+get '/teams/:team' do
   @team_players = []
   @specific_team = params[:team].gsub!(/_/," ") #Jetson Jets
   @roster_info.each do |item|
@@ -19,7 +19,7 @@ get '/:team' do
   erb :index
 end
 
-get '/:position' do
+get '/positions/:position' do
   @player_positions = []
   @specific_position = params[:position].gsub!(/_/," ")
   @roster_info.each do |item|
